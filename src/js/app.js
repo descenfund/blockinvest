@@ -7,13 +7,15 @@ App = {
     $.getJSON('../pets.json', function(data) {
       var petsRow = $('#petsRow');
       var petTemplate = $('#petTemplate');
+      var account = [] ;
 
       for (i = 0; i < data.length; i ++) {
         petTemplate.find('.panel-title').text(data[i].name);
         petTemplate.find('img').attr('src', data[i].picture);
         petTemplate.find('.pet-breed').text(data[i].owner);
         petTemplate.find('.pet-account').text(data[i].account);
-        petTemplate.find('.pet-age').text(data[i].age);
+        account[i] = petTemplate.find('.pet-age').text(data[i].age);
+        
         petTemplate.find('.pet-location').text(data[i].location);
         petTemplate.find('.btn-adopt').attr('data-id', data[i].id);
 
@@ -82,7 +84,23 @@ App = {
     var petId = parseInt($(event.target).data('id'));
 
     console.log("Has pulsado" + petId);
+
     var adoptionInstance;
+
+
+
+    
+    App.contracts.Adoption.deployed().then(function(instance) {
+      adoptionInstance = instance;
+
+      // Execute adopt as a transactxºion by sending account
+      return adoptionInstance.adopt(petId, {from: account[0]});
+    }).then(function(result) {
+      return App.markAdopted();
+    }).catch(function(err) {
+      console.log(err.message);
+    });
+
 
     web3.eth.getAccounts(function(error, accounts) {
       if (error) {
@@ -94,7 +112,7 @@ App = {
       App.contracts.Adoption.deployed().then(function(instance) {
         adoptionInstance = instance;
 
-        // Execute adopt as a transaction by sending account
+        // Execute adopt as a transactxºion by sending account
         return adoptionInstance.adopt(petId, {from: account});
       }).then(function(result) {
         return App.markAdopted();
