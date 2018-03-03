@@ -81,6 +81,7 @@ App = {
 
     var petId = parseInt($(event.target).data('id'));
 
+    console.log("Has pulsado" + petId);
     var adoptionInstance;
 
     web3.eth.getAccounts(function(error, accounts) {
@@ -102,6 +103,7 @@ App = {
       });
     });
 
+>>>>>>> 35462508c2f0a21da849c1076dd8f4755f529c73
   }
 
 };
