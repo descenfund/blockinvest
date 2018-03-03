@@ -82,6 +82,28 @@ App = {
     var petId = parseInt($(event.target).data('id'));
 
     console.log("Has pulsado" + petId);
+    var adoptionInstance;
+
+    web3.eth.getAccounts(function(error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+
+      var account = accounts[0];
+
+      App.contracts.Adoption.deployed().then(function(instance) {
+        adoptionInstance = instance;
+
+        // Execute adopt as a transaction by sending account
+        return adoptionInstance.adopt(petId, {from: account});
+      }).then(function(result) {
+        return App.markAdopted();
+      }).catch(function(err) {
+        console.log(err.message);
+      });
+    });
+
+>>>>>>> 35462508c2f0a21da849c1076dd8f4755f529c73
   }
 
 };
