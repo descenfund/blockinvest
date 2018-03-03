@@ -1,34 +1,34 @@
 [
   {
     "id": 0,
-    "owner": "Marc The Investor",
+    "owner": "Fondo 1",
     "picture": "images/scottish-terrier.jpeg",
-    "age": 43,
-    "account": "Robotics, Defense",
-    "location": "Madrid"
+    "age": "32145-67890-56743-90213-34589",
+    "account": "Fondo 1",
+    "location": "Gest Fund"
   },
   {
     "id": 1,
-    "owner": "Javier Gonzalez",
+    "owner": "Fondo 2",
     "picture": "images/scottish-terrier.jpeg",
-    "age": 46,
-    "account": "Finance, Biotech",
-    "location": "Bilbao"
+    "age": "37845-67892-56780-90213-57589",
+    "account": "Fondo 2",
+    "location": "Roboinvest"
   },
   {
     "id": 2,
-    "owner": "John Fernandez",
+    "owner": "Fondo 3",
     "picture": "images/scottish-terrier.jpeg",
-    "age": 33,
-    "account": "Banking",
-    "location": "Madrid"
+    "age": "39876-67892-56776-90663-12345",
+    "account": "Fondo 3",
+    "location": "Absolute Return"
   },
   {
     "id": 3,
-    "owner": "Isabel Liras",
+    "owner": "Fondo 4",
     "picture": "images/scottish-terrier.jpeg",
-    "age": 38,
-    "account": "Banking, Forex",
-    "location": "Valencia, London"
+    "age": "88902-63332-54560-90123-58900",
+    "account": "Fondo 4",
+    "location": "Value Mix"
   }
 ]
