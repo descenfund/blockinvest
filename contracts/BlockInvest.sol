@@ -1,4 +1,4 @@
-pragma solidity ^0.4.20; // should actually be 0.4.21
+pragma solidity ^0.4.2; // should actually be 0.4.21
 
 contract Invest {
     uint public value;
