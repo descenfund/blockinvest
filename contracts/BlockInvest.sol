@@ -38,9 +38,9 @@ contract Invest {
         _;
     }
 
-    event Aborted();
-    event InvestmentConfirmed();
-    event ItemReceived();
+  //  event Aborted();
+  //  event InvestmentConfirmed();
+  //  event ItemReceived();
 
     /// Abort the purchase and reclaim the ether.
     /// Can only be called by the seller before
@@ -50,7 +50,7 @@ contract Invest {
         onlySeller
         inState(State.Cancelled)
     {
-        emit Aborted();
+      //  emit Aborted();
         state = State.Cancelled;
         manager.transfer(this.balance);
     }
@@ -65,7 +65,7 @@ contract Invest {
         condition(msg.value == (2 * value))
         payable
     {
-        emit InvestmentConfirmed();
+      //  emit InvestmentConfirmed();
         investor = msg.sender;
         state = State.PurchaseConfirmed;
     }
@@ -75,9 +75,9 @@ contract Invest {
     function confirmReceived()
         public
         onlyBuyer
-        inState(State.Locked)
+        inState(State.PurchaseConfirmed)
     {
-        emit PurchaseConfirmed();
+      //  emit PurchaseConfirmed();
         // It is important to change the state first because
         // otherwise, the contracts called using `send` below
         // can call in again here.
